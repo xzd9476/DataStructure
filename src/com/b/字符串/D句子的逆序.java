@@ -3,6 +3,8 @@ package com.b.字符串;
 public class D句子的逆序 {
 	/*
 	 * 只在字符串的单词间做逆序调整，也就是说，字符串由一些空格分隔的部分组成，你需要将这些部分逆序。
+	 * "abc de f" -->"f ed cba" --> "f de abc"
+	 * 先将字符串整体逆序调整，再将单个单次内部逆序调整
 	 */
 	public static String reverseSentence(String A, int n) {
 		if (n <= 0 || A == null)
