@@ -17,10 +17,10 @@ public class A二分搜索的实现 {
 		while(end>start){
 			if(A[mid]>key){
 				end=mid;
-				mid=(start+mid)/2;
+				mid=(mid-start)/2+start;
 			}else if(A[mid]<key){
 				start=mid+1;
-				mid=(mid+end)/2;
+				mid=(end-mid)/2+mid;
 			}else if(A[mid]==key){
 				return mid;
 			}
@@ -33,7 +33,7 @@ public class A二分搜索的实现 {
 	 * 二分搜索的递归实现
 	 */
 	public static int binSearch(int[] A,int start ,int end, int key){
-		int mid=(end+start)/2;
+		int mid=(end-start)/2+start;
 		if(A[mid]==key)
 			return mid;
 		if(start>=end)
@@ -51,7 +51,7 @@ public class A二分搜索的实现 {
 	public static void main(String[] args) {
 		int[] A={1,2,3,4,5,6,7,8,9};
 		for(int i=0;i<A.length;i++){
-			System.out.println(binSearch(A,0,A.length-1, i));
+			System.out.println(binSearch(A, i));
 		}
 	}
 }
