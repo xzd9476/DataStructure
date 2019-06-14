@@ -5,7 +5,7 @@ public class C两串旋转 {
 	 * 对于两个字符串A和B，请判断A和B是否互为旋转词
 	 * "4123" 为 "1234"的旋转词 
 	 * 旋转词语：对于一个字符串A，将A的前面任意一部分挪到后边去形成的字符串称为A的旋转词
-	 * 将原字串拼接上原字串，在用kmp算法
+	 * 将原字串拼接上原字串，在用kmp算法（判断一个字符串是否是一个字符串的字串）
 	 */
 	public static boolean chkRotation(String A, int lena, String B, int lenb) {
 		if(A==null || B==null || lena<=0 || lenb<=0)
