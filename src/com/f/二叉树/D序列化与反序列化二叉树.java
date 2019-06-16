@@ -18,7 +18,7 @@ public class D序列化与反序列化二叉树 {
 		}
 	}
 
-	//非递归实现
+	// 非递归实现
 	public static String toString(TreeNode root) {
 		if (root == null)
 			return null;
@@ -26,49 +26,46 @@ public class D序列化与反序列化二叉树 {
 		Stack<TreeNode> stack = new Stack<D序列化与反序列化二叉树.TreeNode>();
 		stack.push(root);
 		while (!stack.isEmpty()) {
-			TreeNode node = stack.pop();
-			sb.append(String.valueOf(node.val) + "!");
-			if (node.left == null)
+			TreeNode node=stack.pop();
+			if(node==null){
 				sb.append("#!");
-			if (node.right == null) {
-				sb.append("#!");
-			} else {
+			}else{
+				sb.append(String.valueOf(node.val)+"!");
 				stack.push(node.right);
-			}
-			if (node.left != null)
 				stack.push(node.left);
+			}
 		}
 		return sb.toString();
 	}
-	
-	//递归实现
-	public static String toString2(TreeNode root){
-		StringBuilder sb=new StringBuilder("");
-		toString(root,sb);
+
+	// 递归实现
+	public static String toString2(TreeNode root) {
+		StringBuilder sb = new StringBuilder("");
+		toString(root, sb);
 		return sb.toString();
 	}
 
 	private static void toString(TreeNode root, StringBuilder sb) {
-		if(root==null){
+		if (root == null) {
 			sb.append("#!");
 			return;
 		}
-			
-		sb.append(String.valueOf(root.val)+"!");
-		toString(root.left,sb);
-		toString(root.right,sb);
+
+		sb.append(String.valueOf(root.val) + "!");
+		toString(root.left, sb);
+		toString(root.right, sb);
 	}
 
 	public static void main(String[] args) {
 		TreeNode node = new TreeNode(132);
 		node.left = new TreeNode(11);
-		node.right = new TreeNode(23);
+		// node.right = new TreeNode(23);
 		node.left.left = new TreeNode(343);
 		node.left.right = new TreeNode(34);
-		String str=toString(node);
+		String str = toString(node);
 		System.out.println(str);
-		
-		String str2=toString2(node);
+
+		String str2 = toString2(node);
 		System.out.println(str2);
 	}
 }
